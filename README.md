@@ -2,20 +2,24 @@ Projeto Dockerizado com NGINX e Flask
 
 Descrição
 
-Este projeto consiste em uma aplicação Dockerizada com NGINX como servidor frontend e uma aplicação de backend simples construída com Flask. O objetivo é servir arquivos estáticos e fazer proxy reverso para a API do backend.
+Projeto criado com propósito de passar um período na matéria CONFIGURAÇÕES DE SERVIDORES do Professo. Igo Coutinho Moura , onde ele passou uma atividade avaliativa. 
+onde temos que desenvolver uma aplicação Dockerizada
+com NGINX como servidor frontend e uma aplicação de backend simples
+da sua escolha(por exemplo, Node.js ou Python Flask). Onde minha dupla resolve usar Python com Flask pela facilidade.
+Esse projeto está configurado de forma correta, é de fácil inicialização, onde com apenas um comando **docker-compose up --build** caso tenhas as competencias já instaladas.
 
 Estrutura do Projeto
 
 
 ├── backend
-│   ├── app.py
-│   ├── Dockerfile
-│   └── requirements.txt
+│   ├── app.py
+│   ├── Dockerfile
+│   └── requirements.txt
 ├── frontend
-│   ├── static
-│   │   └── index.html
-│   ├── nginx.conf
-│   └── Dockerfile
+│   ├── static
+│   │   └── index.html
+│   ├── nginx.conf
+│   └── Dockerfile
 └── docker-compose.yml
 
 Tecnologias Utilizadas
@@ -24,44 +28,28 @@ Tecnologias Utilizadas
 - Docker Compose
 - NGINX
 - Python "Flask"
+- Python "Flask Cors"
 
 Instruções para Construir e Executar
 
-1. **Certifique-se de que o Docker e o Docker Compose estão instalados e em execução.**
+**OBS**: Para evitar erros de versões, indica-se usar um virtal env.
 
-2. **Clone o repositório ou baixe os arquivos do projeto.**
+1. **Certifique-se de que o Docker e o Docker Compose já estejam intalados e em execução.**
 
-3. **Navegue até o diretório do projeto:**
+2. **Construa os containers:**
 
-   ```bash
-   cd /caminho/para/o/projeto
-   ```
+   docker-compose build
 
-4. **Construa os containers:**
+3. **Inicie os containers:**
 
-   ```bash
-   docker-compose build
-   ```
+   docker-compose up -d
 
-5. **Inicie os containers:**
+4. **Acesse a aplicação no seu navegador:**
 
-   ```bash
-   docker-compose up -d
-   ```
+   http://localhost
 
-6. **Acesse a aplicação no seu navegador:**
 
-   ```
-   http://localhost
-   ```
+## Descrição da Arquitetura.
 
-## Descrição da Arquitetura
-
-- **Frontend:** O NGINX serve arquivos estáticos a partir do diretório `static` e redireciona as requisições para a API do backend.
-- **Backend:** A aplicação Flask responde a requisições HTTP na porta 5000, retornando dados em formato JSON.
-
-## Comunicação entre Frontend e Backend
-
-- O NGINX é configurado para atuar como um proxy reverso, redirecionando as requisições feitas para `/api/` para a aplicação Flask que está rodando no container do backend.
-- O backend se comunica com o frontend através da rede definida no Docker Compose, permitindo que ambos os serviços se descubram e se comuniquem facilmente.
-
+**Frontend:** O NGINX serve arquivos estáticos a partir do diretório `static` onde temos o inex.html e redireciona as requisições para a API do backend.
+**Backend:** A aplicação Flask responde a requisições HTTP na porta 5000, retornando dados em formato JSON.
