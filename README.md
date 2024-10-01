@@ -58,3 +58,49 @@ Instruções para Construir e Executar
 
 **Frontend:** O NGINX serve arquivos estáticos a partir do diretório `static` onde temos o inex.html e redireciona as requisições para a API do backend.
 **Backend:** A aplicação Flask responde a requisições HTTP na porta 5000, retornando dados em formato JSON.
+
+## Repositórios do Docker Hub
+
+### 1. Frontend
+
+**Repositório:** [sinvalfilho/dockerfile-frontend](https://hub.docker.com/repository/docker/sinvalfilho/dockerfile-frontend/general)
+
+**Descrição:**
+Este repositório contém a configuração do Docker para a aplicação frontend. Ele utiliza o NGINX como servidor web para servir arquivos estáticos.
+
+**Como usar:**
+1. **Puxe a imagem do Docker:**
+
+   docker pull sinvalfilho/dockerfile-frontend
+
+2. **Execute o contêiner:**
+
+   docker run -d -p 80:80 sinvalfilho/dockerfile-frontend
+
+3. **Acesse a aplicação:**
+   Abra o navegador e vá para `http://localhost` para ver a aplicação frontend em execução.
+
+
+### 2. Backend
+
+**Repositório:** [sinvalfilho/dockerfile-backend](https://hub.docker.com/repository/docker/sinvalfilho/dockerfile-backend/general)
+
+**Descrição:**
+Este repositório contém a configuração do Docker para a aplicação backend. Ele é construído com Python Flask e fornece uma API RESTful.
+
+**Como usar:**
+1. **Puxe a imagem do Docker:**
+
+   docker pull sinvalfilho/dockerfile-backend
+
+2. **Execute o contêiner:**
+
+   docker run -d -p 5000:5000 sinvalfilho/dockerfile-backend
+
+3. **Acesse a API:**
+   Use um cliente HTTP ou navegador para acessar a API em `http://localhost:5000`.
+
+## Estrutura do Projeto
+
+- **Frontend:** Contém arquivos estáticos e configurações do NGINX para servir a aplicação.
+- **Backend:** Contém o código da aplicação Flask e configurações para expor a API.
