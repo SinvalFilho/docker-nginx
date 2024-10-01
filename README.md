@@ -33,6 +33,11 @@ Tecnologias Utilizadas
 Instruções para Construir e Executar
 
 **OBS**: Para evitar erros de versões, indica-se usar um virtal env.
+1. python -m venv venv
+2. No Windows: venv\Scripts\activate
+2. No Linux ou macOS: source venv/bin/activate
+
+
 
 1. **Certifique-se de que o Docker e o Docker Compose já estejam intalados e em execução.**
 
