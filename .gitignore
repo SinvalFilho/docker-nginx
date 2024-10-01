@@ -1,0 +1,18 @@
+# Criado por https://www.toptal.com/developers/gitignore/api/venv
+# Edite em https://www.toptal.com/developers/gitignore?templates=venv
+
+### venv ###
+# Virtualenv
+# http://iamzed.com/2009/05/07/a-primer-on-virtualenv/
+.Píton
+[Bb]em
+[Ii]incluir
+[Ll]ib
+[Ll]ib64
+[Ll]ocal
+[Ss]criptos
+pyvenv.cfg
+.venv
+pip-selfcheck.json
+
+# Fim de https://www.toptal.com/developers/gitignore/api/venv
