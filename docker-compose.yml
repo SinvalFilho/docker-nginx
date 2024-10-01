@@ -11,6 +11,6 @@ services:
     ports:
       - "80:80"
     volumes:
-      - ./frontend/nginx.conf:/etc/nginx/nginx.conf
+      - ./frontend/static:/usr/share/nginx/html
     depends_on:
       - backend

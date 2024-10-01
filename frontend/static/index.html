@@ -1,11 +1,109 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nginx</title>
+    <title>Teste do Backend Flask</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #2c2c2c;
+            color: #e0e0e0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            text-align: center;
+            background-color: #1c1c1c;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        h1 {
+            font-size: 36px;
+            color: #ffffff;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 18px;
+            color: #b0b0b0;
+            margin-bottom: 30px;
+        }
+
+        button {
+            background-color: #ffffff;
+            color: #000000;
+            border: 2px solid #ffffff;
+            padding: 12px 24px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #000000;
+            color: #ffffff;
+            border-color: #000000;
+        }
+
+        #message {
+            margin-top: 20px;
+            font-size: 20px;
+            font-weight: bold;
+            color: #ffffff;
+        }
+
+        button:focus {
+            outline: none;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+        }
+
+        #message.success {
+            color: #90ee90;
+        }
+
+        #message.error {
+            color: #ff6666;
+        }
+    </style>
+    <script>
+        async function fetchMessage() {
+            const messageElement = document.getElementById('message');
+            try {
+                const response = await fetch('http://localhost:5000/');
+                if (!response.ok) {
+                    throw new Error('Erro: ' + response.statusText);
+                }
+                const data = await response.json();
+                messageElement.textContent = data.message;
+                messageElement.classList.add('success');
+                messageElement.classList.remove('error');
+            } catch (error) {
+                messageElement.textContent = 'Erro ao conectar ao backend: ' + error;
+                messageElement.classList.add('error');
+                messageElement.classList.remove('success');
+            }
+        }
+    </script>
 </head>
 <body>
-    
+    <div class="container">
+        <h1>Teste do Backend Flask</h1>
+        <p id="message">Aguardando teste de conexão...</p>
+        <button onclick="fetchMessage()">Testar Conexão</button>
+    </div>
 </body>
 </html>
